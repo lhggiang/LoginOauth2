@@ -2,7 +2,11 @@ package com.devteria.identityservice.controller;
 
 import java.text.ParseException;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.devteria.identityservice.dto.request.*;
 import com.devteria.identityservice.dto.response.AuthenticationResponse;
@@ -22,7 +26,9 @@ public class AuthenticationController {
     AuthenticationService authenticationService;
 
     @PostMapping("/outbound/authentication")
-    ApiResponse<AuthenticationResponse> outboundAuthenticate(@RequestParam("code") String code) {
+    ApiResponse<AuthenticationResponse> outboundAuthenticate(
+            @RequestParam("code") String code
+    ){
         var result = authenticationService.outboundAuthenticate(code);
         return ApiResponse.<AuthenticationResponse>builder().result(result).build();
     }

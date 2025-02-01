@@ -2,6 +2,12 @@ package com.devteria.identityservice.controller;
 
 import java.time.LocalDate;
 
+import com.devteria.identityservice.dto.request.UserCreationRequest;
+import com.devteria.identityservice.dto.response.UserResponse;
+import com.devteria.identityservice.service.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
@@ -15,14 +21,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import com.devteria.identityservice.dto.request.UserCreationRequest;
-import com.devteria.identityservice.dto.response.UserResponse;
-import com.devteria.identityservice.service.UserService;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
-import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootTest
